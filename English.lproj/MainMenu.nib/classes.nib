@@ -1,0 +1,67 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {doneEnteringPassword = id; }; 
+            CLASS = AskPasswordController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {okButton = NSButton; panel = NSPanel; passwordField = NSSecureTextField; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cancelRecordEdit = id; 
+                changePassword = id; 
+                copyPassword = id; 
+                createNewFolder = id; 
+                createNewRecord = id; 
+                createNewSafe = id; 
+                deleteItem = id; 
+                doneCreatingNewGroup = id; 
+                doneCreatingNewRecord = id; 
+                handleSaveAs = id; 
+                openSafe = id; 
+                saveRecord = id; 
+                showPassword = id; 
+            }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                askPasswordController = AskPasswordController; 
+                cancelButton = NSButton; 
+                mainWindow = NSWindow; 
+                newGroupNameField = NSTextField; 
+                newGroupOK = NSButton; 
+                newGroupSheet = NSWindow; 
+                newPasswordController = NewPasswordController; 
+                newRecordOK = NSButton; 
+                newRecordSheet = NSWindow; 
+                newRecordTitleField = NSTextField; 
+                newSafeMenu = NSMenuItem; 
+                notesField = NSTextView; 
+                openSafeMenu = NSMenuItem; 
+                passwordField = NSTextField; 
+                recordsOutline = NSOutlineView; 
+                saveButton = NSButton; 
+                showPasswordSwitch = NSButton; 
+                titleField = NSTextField; 
+                usernameField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {doneEnteringPassword = id; }; 
+            CLASS = NewPasswordController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                errorField = NSTextField; 
+                newPasswordConfirmationField = NSSecureTextField; 
+                newPasswordField = NSSecureTextField; 
+                okButton = NSButton; 
+                panel = NSPanel; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
