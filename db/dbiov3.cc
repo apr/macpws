@@ -290,8 +290,9 @@ void reader::read_records(pws_db &db)
 {
     while(1) {
         try {
-            pws_record &rec = db.add_empty_record();
-            read_fields(rec.get_fields());
+            scoped_ptr<pws_record> rec(db.create_empty_record());
+            read_fields(rec->get_fields());
+            db.add_record(rec.release());
         } catch(end_of_file ex) {
             break;
         }

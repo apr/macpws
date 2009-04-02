@@ -170,13 +170,15 @@ static NSError *convertExceptionToError(const pws::pws_io_exception &ex)
 
 - (Record *) createNewRecordWithTitle: (NSString *)title inGroup: (Group *)group
 {
-    pws::pws_record &db_r = db->add_record([title UTF8String], "");
+    pws::pws_record *db_r = db->create_record([title UTF8String], "");
+    
+    db->add_record(db_r);
     
     if(group) {
-        db_r.set_group([[group name] UTF8String]);
+        db_r->set_group([[group name] UTF8String]);
     }
     
-    Record *r = [[Record alloc] initWithRecord: &db_r];
+    Record *r = [[Record alloc] initWithRecord: db_r];
 
     if(group) {
         [group addRecord: r];

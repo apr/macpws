@@ -298,19 +298,20 @@ pws::pws_db::~pws_db()
     }
 }
 
-pws::pws_record &pws::pws_db::add_record(
+pws::pws_record *pws::pws_db::create_record(
     const std::string &title, const std::string &pass)
 {
-    pws_record *ret = new pws_record(title, pass);
-    _records.push_back(ret);
-    return *ret;
+    return new pws_record(title, pass);
 }
 
-pws::pws_record &pws::pws_db::add_empty_record()
+void pws::pws_db::add_record(pws_record *record)
 {
-    pws_record *ret = new pws_record();
-    _records.push_back(ret);
-    return *ret;
+    _records.push_back(record);
+}
+
+pws::pws_record *pws::pws_db::create_empty_record()
+{
+    return new pws_record();
 }
 
 int pws::pws_db::num_records() const

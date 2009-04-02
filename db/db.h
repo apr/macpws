@@ -203,10 +203,13 @@ public:
     pws_header &get_header();
     const pws_header &get_header() const;
 
-    // Adds a new record with the given title and password to the database
-    // and returns a reference to it.
-    // Generates UUID for the record.
-    pws_record &add_record(const std::string &title, const std::string &pass);
+    // Creates a new record with the given title and password, generates
+    // a new UUID. The caller assumes ownership of the newly created record.
+    pws_record *create_record(const std::string &title, const std::string &pass);
+    
+    // Adds the given record to the database. The record should have been
+    // created using the create_method() call.
+    void add_record(pws_record *record);
 
     int num_records() const;
 
@@ -216,10 +219,9 @@ public:
     void delete_record(const pws_record &);
     void delete_record_by_index(int index);
 
-    // Creates a new empty record and returns a reference to it.
-    // An application should not use this call directly because it does not
-    // populate required fields.
-    pws_record &add_empty_record();
+    // Creates a new empty record. An application should not use this call
+    // directly because it does not populate the required fields.
+    pws_record *create_empty_record();
 
 private:
     pws_db() {}
