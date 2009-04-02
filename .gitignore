@@ -3,3 +3,4 @@ build/*
 *.mode1v3
 *.mode1
 *~.nib
+*.pch
